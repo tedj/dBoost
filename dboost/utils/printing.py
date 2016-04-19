@@ -78,12 +78,12 @@ def jsonify_rows(outliers, model, hints, rules_descriptions, verbosity=0, max_w=
     for linum, (x, X, discrepancies) in outliers:
         truncated_x = tuple(str(f)[:w] for f, w in zip(x, widths))
         if truncated_x in outliers_rows:
-            print ('FIRST PASS')
+            # print ('FIRST PASS')
             for outd in rows:
                 if outd['outlier'] == truncated_x:
                     outlier_dict = outd
         else:
-            print ('second PASS')
+            # print ('second PASS')
             outlier_dict = dict()
             outlier_dict['outlier'] = truncated_x
             outliers_rows.add(truncated_x)

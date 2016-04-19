@@ -51,7 +51,7 @@ class DiscreteStats:
             for ids in to_remove:
                 del self.histograms[ids]
 
-        print(len(self.histograms))
+        # print(len(self.histograms))
         self.hints = tuple(self.histograms.keys())
 
     def expand_stats(self):

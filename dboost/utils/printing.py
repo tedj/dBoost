@@ -92,9 +92,8 @@ def jsonify_rows(outliers, model, hints, rules_descriptions, verbosity=0, max_w=
                 fields_dict = describe_discrepancy_json(fields_group,
                                                         rules_descriptions,
                                                         hints, x)
-                msg, features_desc = describe_discrepancy(fields_group,
-                                                          rules_descriptions,
-                                                          hints, x)
+                if verbosity > 1:
+                    fields_dict['graph'] = model.more_info_json(fields_group)
                 if 'fields' in outlier_dict.keys():
                     outlier_dict['fields'].append(fields_dict)
                 else:

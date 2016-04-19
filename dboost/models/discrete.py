@@ -98,3 +98,15 @@ class Histogram:
         counter = self.all_counters[field_id][feature_id]
         pipe.write(indent + "• histogram for {}:\n".format(description))
         hhistplot(counter, highlighted, indent + "  ", pipe)
+
+    def more_info_json(self, discrepancy):
+        assert (len(discrepancy) == 1)
+        field_id, feature_id = discrepancy[0]
+        counter = self.all_counters[field_id][feature_id]
+        histo = list()
+        for c in counter:
+            line = dict()
+            line['key'] = str(c)
+            line['value'] = counter[c]
+            histo.append(line)
+        return histo

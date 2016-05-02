@@ -46,11 +46,11 @@ def describe_discrepancy_json(fields_group, rules_descriptions, hints, x):
                                          rules_descriptions[type(x[field_id])][feature_id])
                                         for field_id, feature_id in expanded))
     if len(expanded) == 1:
-        FMT = "   > Value '{}' ({}) doesn't match feature '{}'"
-        msg = FMT.format(values[0], field_ids[0], features[0])
+        FMT = "Value '{}' doesn't match feature '{}'"
+        msg = FMT.format(values[0], features[0])
     else:
-        FMT = "   > Values {} {} do not match features {}"
-        msg = FMT.format(values, field_ids, features)
+        FMT = "Values {} do not match features {}"
+        msg = FMT.format(values, features)
 
     response = dict()
     response['values'] = values
